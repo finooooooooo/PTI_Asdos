@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    animation: fade-in 0.5s ease-in forwards, slideUp 0.5s ease-in forwards;
 }
 
 /* Header & Nav */
@@ -379,4 +380,66 @@ footer {
     .seats-grid {
         gap: 5px;
     }
+/*format mobile*/
+}
+@media (max-width: 600px) {
+
+    .detail-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem;
+        text-align: center;
+    }
+
+    .detail-poster img {
+        width: 70%;
+        height: auto;
+        max-width: 250px;
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+
+    .detail-content {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .detail-meta {
+        grid-template-columns: 1fr;
+        gap: 10px 0;
+        font-size: 0.95rem;
+    }
+
+    .meta-label {
+        color: #cfcfcf;
+        font-weight: bold;
+    }
+
+    #detail-synopsis {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    #buy-ticket-btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 2rem auto 0;
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
