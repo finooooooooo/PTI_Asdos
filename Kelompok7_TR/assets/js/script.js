@@ -4,12 +4,12 @@
 const movies = [
     {
         id: 1,
-        title: "Inception",
-        rating: "D17+",
-        genre: "Sci-Fi, Action",
-        duration: "2h 28m",
-        synopsis: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-        image: "https://placehold.co/300x450?text=Inception"
+        title: "Bokep anjay",
+        rating: "6 Tahun Boleh+",
+        genre: "Horor",
+        duration: "20h",
+        synopsis: "Tante nyasar ngungsi di tempat kakek",
+        image: "images/parani.jpg"
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const movies = [
         genre: "Sci-Fi, Adventure",
         duration: "2h 49m",
         synopsis: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-        image: "https://placehold.co/300x450?text=Interstellar"
+        image: "images/interstellar.jpg"
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const movies = [
         genre: "Action, Crime",
         duration: "2h 32m",
         synopsis: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-        image: "https://placehold.co/300x450?text=The+Dark+Knight"
+        image: "images/batman.jpg"
     },
     {
         id: 4,
@@ -36,7 +36,7 @@ const movies = [
         genre: "Action, Sci-Fi",
         duration: "3h 1m",
         synopsis: "After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos' actions and restore balance to the universe.",
-        image: "https://placehold.co/300x450?text=Avengers+Endgame"
+        image: "images/avengers.jpg"
     },
     {
         id: 5,
@@ -45,7 +45,7 @@ const movies = [
         genre: "Action, Adventure",
         duration: "2h 28m",
         synopsis: "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
-        image: "https://placehold.co/300x450?text=Spider-Man"
+        image: "images/spiderman.jpg"
     },
     {
         id: 6,
@@ -54,7 +54,7 @@ const movies = [
         genre: "Sci-Fi, Adventure",
         duration: "2h 35m",
         synopsis: "Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people.",
-        image: "https://placehold.co/300x450?text=Dune"
+        image: "images/dune.jpg"
     }
 ];
 
@@ -103,9 +103,9 @@ function renderMovies(containerId) {
             const isHome = containerId === 'now-playing-grid';
             window.location.href = isHome ? 'pages/detail.html' : 'detail.html';
         };
-
+        const prefix = window.location.pathname.includes('/pages/') ? '../' : '';
         card.innerHTML = `
-            <img src="${movie.image}" alt="${movie.title}">
+            <img src="${prefix + movie.image}" alt="${movie.title}">
             <div class="movie-info">
                 <div class="movie-title">${movie.title}</div>
                 <div class="movie-rating">
@@ -129,7 +129,7 @@ function loadMovieDetail() {
     const movie = movies.find(m => m.id == movieId);
     if (!movie) return;
 
-    document.getElementById('detail-poster').src = movie.image;
+    document.getElementById('detail-poster').src = "../" + movie.image;
     document.getElementById('detail-title').textContent = movie.title;
     document.getElementById('detail-synopsis').textContent = movie.synopsis;
     document.getElementById('meta-genre').textContent = movie.genre;
