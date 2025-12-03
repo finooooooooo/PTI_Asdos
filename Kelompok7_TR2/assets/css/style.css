@@ -1,0 +1,445 @@
+/* Created by Fino - Group 7 */
+
+:root {
+    --primary-color: #cfa144;
+    --bg-color: #0f0f0f;
+    --text-color: #ffffff;
+    --secondary-bg: #1a1a1a;
+    --seat-available: #444444;
+    --seat-selected: #cfa144;
+    --seat-occupied: #a0a0a0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    animation: fade-in 0.5s ease-in forwards, slideUp 0.5s ease-in forwards;
+}
+
+/* Header & Nav */
+header {
+    background-color: var(--secondary-bg);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Hero Section (Home) */
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 4rem 1rem;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://placehold.co/1200x400?text=Cinema+Experience');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--primary-color);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #b38b36;
+}
+
+/* Movie Grid */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.movie-card {
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(207, 161, 68, 0.2);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 1rem;
+}
+
+.movie-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-rating {
+    color: #aaa;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Detail Page */
+.detail-container {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.detail-poster img {
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.detail-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.detail-meta {
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+    font-size: 1rem;
+}
+
+.meta-label {
+    color: #888;
+    font-weight: bold;
+}
+
+/* Schedule Page */
+.schedule-section {
+    margin-bottom: 2rem;
+}
+
+.studio-title {
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+.time-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.time-btn {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.time-btn:hover {
+    border-color: var(--primary-color);
+}
+
+.time-btn.selected {
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: bold;
+}
+
+/* Seats Page */
+.screen {
+    background-color: #fff;
+    height: 10px;
+    width: 80%;
+    margin: 0 auto 3rem;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    border-radius: 50%;
+    transform: rotateX(-30deg);
+}
+
+.seats-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.seat {
+    aspect-ratio: 1;
+    background-color: var(--seat-available);
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.seat:hover:not(.occupied) {
+    background-color: #666;
+}
+
+.seat.selected {
+    background-color: var(--seat-selected);
+}
+
+.seat.occupied {
+    background-color: var(--seat-occupied);
+    cursor: not-allowed;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.summary-bar {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Ticket Page */
+.ticket-card {
+    background-color: #fff;
+    color: #000;
+    max-width: 500px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-header {
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.ticket-body {
+    padding: 2rem;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.qr-code {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.qr-code img {
+    max-width: 150px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-bg);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .detail-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .detail-meta {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .seats-grid {
+        gap: 5px;
+    }
+/*format mobile*/
+}
+@media (max-width: 600px) {
+
+    .detail-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem;
+        text-align: center;
+    }
+
+    .detail-poster img {
+        width: 70%;
+        height: auto;
+        max-width: 250px;
+        border-radius: 8px;
+        margin: 0 auto;
+    }
+
+    .detail-content {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .detail-meta {
+        grid-template-columns: 1fr;
+        gap: 10px 0;
+        font-size: 0.95rem;
+    }
+
+    .meta-label {
+        color: #cfcfcf;
+        font-weight: bold;
+    }
+
+    #detail-synopsis {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    #buy-ticket-btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 2rem auto 0;
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
