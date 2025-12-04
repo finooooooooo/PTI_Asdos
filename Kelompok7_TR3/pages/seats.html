@@ -1,0 +1,61 @@
+<!-- Created by Fazarya - Group 7 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - XXI Paragon Semarang</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="../index.html" class="logo">VII Paragon</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="movies.html" class="active">Movies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="seats-container">
+        <h2 style="text-align: center;">Select Seats</h2>
+
+        <div class="screen"></div>
+
+        <div id="seats-grid" class="seats-grid">
+            <!-- Populated by JS -->
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box" style="background-color: var(--seat-available);"></div>
+                <span>Available</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background-color: var(--seat-selected);"></div>
+                <span>Selected</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box" style="background-color: var(--seat-occupied);"></div>
+                <span>Occupied</span>
+            </div>
+        </div>
+
+        <div class="summary-bar">
+            <div>
+                <h3>Total Price:</h3>
+                <h2 id="total-price" style="margin: 0; color: var(--primary-color);">Rp 0</h2>
+            </div>
+            <button id="checkout-btn" class="btn" disabled style="opacity: 0.5;">Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 VII Paragon Salatiga - Group 7 Project</p>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
